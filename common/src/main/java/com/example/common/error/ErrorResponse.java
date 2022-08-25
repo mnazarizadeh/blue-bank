@@ -1,10 +1,10 @@
-package com.example.customermng.api.web.handler;
+package com.example.common.error;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.example.customermng.util.ExceptionMessage;
+import com.example.common.constant.ExceptionMessage;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;

@@ -2,6 +2,7 @@ package com.example.customermng.api.web.handler;
 
 import java.security.InvalidParameterException;
 
+import com.example.common.error.ErrorResponse;
 import com.example.customermng.exception.BusinessException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

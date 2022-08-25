@@ -1,4 +1,4 @@
-package com.example.customermng.api.web.handler;
+package com.example.common.error;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -24,6 +24,7 @@
 
 		<account-service.version>0.0.1-SNAPSHOT</account-service.version>
 		<transaction-service.version>0.0.1-SNAPSHOT</transaction-service.version>
+		<common.version>0.0.1-SNAPSHOT</common.version>
 	</properties>
 
 	<dependencies>
@@ -31,6 +32,11 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>common</artifactId>
+			<version>${common.version}</version>
 		</dependency>
 	</dependencies>
 
