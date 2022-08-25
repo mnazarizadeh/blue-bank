@@ -13,6 +13,8 @@
 	<name>transaction-mng</name>
 
 	<properties>
+		<config.server.enabled>false</config.server.enabled>
+		<config.server.label>none</config.server.label>
 	</properties>
 
 	<dependencyManagement>
@@ -118,6 +120,32 @@
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<spring.active.profile>local</spring.active.profile>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<spring.active.profile>dev</spring.active.profile>
+				<config.server.enabled>true</config.server.enabled>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<spring.active.profile>prod</spring.active.profile>
+				<config.server.enabled>true</config.server.enabled>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
