@@ -1,0 +1,2 @@
+INSERT INTO `customers` (`first_name`, `last_name`, `birth_date`, `social_id`) VALUES ('Mohammad', 'Nazarizadeh', 655417800000, '2280603667');
+INSERT INTO `customers` (`first_name`, `last_name`, `birth_date`, `social_id`) VALUES ('Mehrnoush', 'Safari', 683321400000, '2700081692');
