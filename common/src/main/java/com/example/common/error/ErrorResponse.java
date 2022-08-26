@@ -4,19 +4,20 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.example.common.constant.ExceptionMessage;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-import org.springframework.http.HttpStatus;
-
-@Data
+@Getter
+@Setter
+@ToString
 public class ErrorResponse {
 
-	private HttpStatus status;
+	private String responseCode;
 
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy HH:mm:ss")
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date timestamp;
 
 	private String message;
@@ -31,27 +32,20 @@ public class ErrorResponse {
 		timestamp = new Date();
 	}
 
-	public ErrorResponse(HttpStatus status) {
+	public ErrorResponse(String responseCode) {
 		this();
-		this.status = status;
+		this.responseCode = responseCode;
 	}
 
-	public ErrorResponse(HttpStatus status, String message) {
+	public ErrorResponse(String responseCode, String message) {
 		this();
-		this.status = status;
+		this.responseCode = responseCode;
 		this.message = message;
 	}
 
-	public ErrorResponse(HttpStatus status, Throwable ex) {
+	public ErrorResponse(String responseCode, String message, Throwable ex) {
 		this();
-		this.status = status;
-		this.message = ExceptionMessage.UNEXPECTED_ERROR;
-		this.debugMessage = ex.getLocalizedMessage();
-	}
-
-	public ErrorResponse(HttpStatus status, String message, Throwable ex) {
-		this();
-		this.status = status;
+		this.responseCode = responseCode;
 		this.message = message;
 		this.debugMessage = ex.getLocalizedMessage();
 	}

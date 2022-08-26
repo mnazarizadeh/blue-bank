@@ -3,7 +3,7 @@ package com.example.customermng.api.web;
 import javax.validation.Valid;
 
 import com.example.customermng.api.web.mapper.CustomerResourceMapper;
-import com.example.customermng.exception.BusinessException;
+import com.example.common.exception.BusinessException;
 import com.example.customermng.service.CustomerService;
 import com.example.customermng.spec.request.CustomerCreationRequest;
 import com.example.customermng.spec.response.CustomerBriefResponse;

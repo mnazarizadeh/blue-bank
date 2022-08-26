@@ -1,6 +1,6 @@
 package com.example.customermng.service.impl;
 
-import com.example.customermng.exception.BusinessException;
+import com.example.common.exception.BusinessException;
 import com.example.customermng.exception.CustomerNotFoundException;
 import com.example.customermng.repository.CustomerRepository;
 import com.example.customermng.service.CustomerService;

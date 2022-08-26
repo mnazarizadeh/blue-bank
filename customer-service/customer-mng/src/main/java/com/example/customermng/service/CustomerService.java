@@ -1,6 +1,6 @@
 package com.example.customermng.service;
 
-import com.example.customermng.exception.BusinessException;
+import com.example.common.exception.BusinessException;
 import com.example.customermng.service.model.CustomerCreationModel;
 import com.example.customermng.service.model.CustomerBriefInquiryModel;
 import com.example.customermng.service.model.CustomerDetailResult;
