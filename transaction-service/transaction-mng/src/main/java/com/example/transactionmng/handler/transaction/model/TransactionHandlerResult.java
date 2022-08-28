@@ -1,0 +1,17 @@
+package com.example.transactionmng.handler.transaction.model;
+
+import com.example.transactionmng.domain.constant.TransactionStatus;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
+public class TransactionHandlerResult {
+
+	private String trackingCode;
+
+	private TransactionStatus status;
+
+}
