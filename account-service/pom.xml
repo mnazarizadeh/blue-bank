@@ -24,6 +24,7 @@
 
 		<customer-service.version>0.0.1-SNAPSHOT</customer-service.version>
 		<transaction-service.version>0.0.1-SNAPSHOT</transaction-service.version>
+		<common.version>0.0.1-SNAPSHOT</common.version>
 	</properties>
 
 	<dependencies>
