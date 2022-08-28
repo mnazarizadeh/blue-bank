@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum TransactionType {
 
-	DEBIT(0), CREDIT(1);
+	WITHDRAW(0), DEPOSIT(1);
 
 	private final int value;
 

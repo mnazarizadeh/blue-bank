@@ -37,8 +37,8 @@ public class TransactionJournal implements Serializable {
 	@Column(name = "tracking_code", nullable = false, unique = true)
 	private String trackingCode;
 
-	@Column(name = "account_number", nullable = false)
-	private String accountNumber;
+	@Column(name = "account_identifier", nullable = false)
+	private String accountIdentifier;
 
 	@Column(name = "transaction_type", nullable = false)
 	private TransactionType type;

@@ -2,7 +2,6 @@ package com.example.accountmng.domain;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,8 +33,8 @@ public class Account implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "account_number", nullable = false, unique = true)
-	private String accountNumber;
+	@Column(name = "account_identifier", nullable = false, unique = true)
+	private String accountIdentifier;
 
 	@Column(name = "account_type", nullable = false)
 	private AccountType type;
@@ -44,8 +43,8 @@ public class Account implements Serializable {
 	private Long ownerId;
 
 	@CreatedDate
-	@Column(name = "creation_date", nullable = false)
-	private Long creationDate;
+	@Column(name = "opening_date", nullable = false)
+	private Long openingDate;
 
 	@Column(name = "balance", nullable = false)
 	private double balance;
@@ -53,8 +52,8 @@ public class Account implements Serializable {
 	@Column(name = "active", nullable = false)
 	private boolean active;
 
-	public Date getCreationDate() {
-		return new Date(creationDate);
+	public Date getOpeningDate() {
+		return new Date(openingDate);
 	}
 
 }

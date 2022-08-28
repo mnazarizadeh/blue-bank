@@ -23,4 +23,7 @@ public class ResponseCode {
 	public static final String AUTHORIZATION_ERROR = "authorization.error";
 
 	public static final String END_POINT_TIMEOUT = "endpoint.timeout";
+
+	public static final String ACCOUNT_NOT_FOUND = "account.not.found";
+
 }
