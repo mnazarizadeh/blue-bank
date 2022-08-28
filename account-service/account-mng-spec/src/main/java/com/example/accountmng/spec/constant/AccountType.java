@@ -1,4 +1,4 @@
-package com.example.customermng.spec.constant;
+package com.example.accountmng.spec.constant;
 
 import java.util.stream.Stream;
 

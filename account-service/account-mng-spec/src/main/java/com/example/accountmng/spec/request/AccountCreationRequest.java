@@ -3,7 +3,7 @@ package com.example.accountmng.spec.request;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import com.example.customermng.spec.constant.AccountType;
+import com.example.accountmng.spec.constant.AccountType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

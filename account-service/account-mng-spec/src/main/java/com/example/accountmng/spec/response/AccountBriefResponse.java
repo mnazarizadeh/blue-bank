@@ -3,7 +3,7 @@ package com.example.accountmng.spec.response;
 import java.util.Date;
 
 import com.example.accountmng.spec.dto.AccountOwnerDto;
-import com.example.customermng.spec.constant.AccountType;
+import com.example.accountmng.spec.constant.AccountType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
