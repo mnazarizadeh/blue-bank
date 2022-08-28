@@ -119,11 +119,6 @@
 			<artifactId>transaction-mng-spec</artifactId>
 			<version>${transaction-service.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>common</artifactId>
-			<version>${common.version}</version>
-		</dependency>
 	</dependencies>
 
 	<profiles>

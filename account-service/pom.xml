@@ -33,6 +33,11 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>common</artifactId>
+			<version>${common.version}</version>
+		</dependency>
 	</dependencies>
 
 	<modules>

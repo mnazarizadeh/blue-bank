@@ -111,18 +111,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.example</groupId>
-			<artifactId>customer-mng-spec</artifactId>
-			<version>${customer-service.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.example</groupId>
 			<artifactId>transaction-mng-spec</artifactId>
 			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>common</artifactId>
-			<version>${common.version}</version>
 		</dependency>
 	</dependencies>
 
