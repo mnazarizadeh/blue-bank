@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-@RequiredArgsConstructor
 public record AccountCreatorContext(
 		List<AccountCreatorStrategy> strategies) {
 

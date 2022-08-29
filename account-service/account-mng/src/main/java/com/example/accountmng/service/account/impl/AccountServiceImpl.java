@@ -72,6 +72,6 @@ public class AccountServiceImpl implements AccountService {
 
 	private Account getAccountByAccountIdentifier(String accountIdentifier) throws BusinessException {
 		return repository.findByAccountIdentifier(accountIdentifier)
-				.orElseThrow(() -> new AccountNotFoundException("account not exists with account identifier: " + accountIdentifier))
+				.orElseThrow(() -> new AccountNotFoundException("account not exists with account identifier: " + accountIdentifier));
 	}
 }
