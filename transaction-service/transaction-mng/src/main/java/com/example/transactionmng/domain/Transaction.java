@@ -50,6 +50,9 @@ public class Transaction implements Serializable {
 	@Column(name = "amount", nullable = false)
 	private double amount;
 
+	@Column(name = "final_balance", nullable = false)
+	private double finalBalance;
+
 	@Column(name = "status", nullable = false)
 	private TransactionStatus status;
 
