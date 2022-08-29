@@ -1,5 +1,7 @@
 package com.example.transactionmng.service.transaction.impl;
 
+import java.util.stream.Collectors;
+
 import com.example.common.exception.BusinessException;
 import com.example.transactionmng.domain.Transaction;
 import com.example.transactionmng.domain.constant.TransactionStatus;
@@ -9,6 +11,7 @@ import com.example.transactionmng.repository.TransactionRepository;
 import com.example.transactionmng.service.transaction.TransactionService;
 import com.example.transactionmng.service.transaction.mapper.TransactionServiceMapper;
 import com.example.transactionmng.service.transaction.model.TransactionBriefResult;
+import com.example.transactionmng.service.transaction.model.TransactionDetailListResult;
 import com.example.transactionmng.service.transaction.model.TransactionInitiationModel;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -45,6 +48,17 @@ public class TransactionServiceImpl implements TransactionService {
 		runtVerificationStateMachine(transaction);
 
 		return mapper.toTransactionBriefResult(transaction);
+	}
+
+	@Override
+	public TransactionDetailListResult getAccountTransactions(String accountIdentifier) {
+		log.debug("gonna fetch transactions belong to account -> [{}]", accountIdentifier);
+
+		var transactions = repository.findByAccountIdentifier(accountIdentifier);
+
+		return new TransactionDetailListResult(transactions.stream()
+				.map(mapper::toTransActionDetail)
+				.collect(Collectors.toSet()));
 	}
 
 	private Transaction getTransactionByTrackingCode(String trackingCode) throws BusinessException {

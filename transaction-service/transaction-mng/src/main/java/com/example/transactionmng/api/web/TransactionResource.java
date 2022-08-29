@@ -2,13 +2,12 @@ package com.example.transactionmng.api.web;
 
 import javax.validation.Valid;
 
-import com.example.accountmng.spec.request.AccountCreationRequest;
-import com.example.accountmng.spec.response.AccountBriefResponse;
 import com.example.common.exception.BusinessException;
 import com.example.transactionmng.api.web.mapper.TransactionResourceMapper;
 import com.example.transactionmng.service.transaction.TransactionService;
 import com.example.transactionmng.spec.request.TransactionRequest;
 import com.example.transactionmng.spec.response.TransactionBriefResponse;
+import com.example.transactionmng.spec.response.TransactionDetailListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -43,7 +43,7 @@ public class TransactionResource {
 		return ResponseEntity.ok(mapper.toTransactionBriefResponse(result));
 	}
 
-	@GetMapping(path = "/{trackingCode}", produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(path = "/{trackingCode}/verify", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<TransactionBriefResponse> verifyTransaction(@PathVariable String trackingCode)
 			throws BusinessException {
 		log.info("got verify transaction request of tracking code: [{}]", trackingCode);
@@ -53,4 +53,16 @@ public class TransactionResource {
 
 		return ResponseEntity.ok(mapper.toTransactionBriefResponse(result));
 	}
+
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<TransactionDetailListResponse> getAccountTransactions(@RequestParam("account") String accountIdentifier)
+			throws BusinessException {
+		log.info("got account transactions request of account identifier: [{}]", accountIdentifier);
+
+		var result = service.getAccountTransactions(accountIdentifier);
+		log.trace("transaction list: [{}]", result);
+
+		return ResponseEntity.ok(mapper.toTransactionDetailListResponse(result));
+	}
+
 }
