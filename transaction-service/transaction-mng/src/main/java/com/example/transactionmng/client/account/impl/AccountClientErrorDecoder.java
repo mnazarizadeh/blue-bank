@@ -36,7 +36,7 @@ public class AccountClientErrorDecoder extends ErrorDecoder.Default {
 		}
 
 		int statusCode = response.status();
-		if (HttpStatus.resolve(statusCode).is4xxClientError() || HttpStatus.resolve(statusCode).is5xxServerError()) {
+		if (HttpStatus.resolve(statusCode).is4xxClientError()) {
 			return verify(read(response));
 		}
 
