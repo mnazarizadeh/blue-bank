@@ -1,6 +1,6 @@
 package com.example.transactionmng.spec.response;
 
-import java.util.Set;
+import java.util.List;
 
 import com.example.transactionmng.spec.dto.TransactionDetailDto;
 import lombok.Getter;
@@ -12,6 +12,6 @@ import lombok.ToString;
 @ToString
 public class TransactionDetailListResponse {
 
-	private Set<TransactionDetailDto> transactions;
+	private List<TransactionDetailDto> transactions;
 
 }

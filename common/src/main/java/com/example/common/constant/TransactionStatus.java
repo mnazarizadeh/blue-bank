@@ -1,4 +1,4 @@
-package com.example.transactionmng.spec.constant;
+package com.example.common.constant;
 
 import java.util.stream.Stream;
 

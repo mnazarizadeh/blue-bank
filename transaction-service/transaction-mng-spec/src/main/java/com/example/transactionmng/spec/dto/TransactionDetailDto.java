@@ -2,8 +2,8 @@ package com.example.transactionmng.spec.dto;
 
 import java.util.Date;
 
-import com.example.transactionmng.spec.constant.TransactionStatus;
-import com.example.transactionmng.spec.constant.TransactionType;
+import com.example.common.constant.TransactionStatus;
+import com.example.common.constant.TransactionType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
