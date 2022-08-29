@@ -1,8 +1,8 @@
-package com.example.accountmng.spec.response;
+package com.example.accountmng.spec.dto;
 
 import java.util.Date;
+import java.util.List;
 
-import com.example.accountmng.spec.dto.AccountOwnerDto;
 import com.example.common.constant.AccountType;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,16 +11,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class AccountBriefResponse {
+public class AccountDetailDto {
 
 	private String accountIdentifier;
 
 	private AccountType accountType;
 
-	private AccountOwnerDto owner;
-
 	private Date openingDate;
 
 	private double balance;
+
+	private List<TransactionDetailDto> transactions;
 
 }
