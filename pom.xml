@@ -10,10 +10,10 @@
 	</parent>
 
 	<groupId>com.example</groupId>
-	<artifactId>assignment</artifactId>
+	<artifactId>blue-bank</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>assignment</name>
+	<name>blue-bank</name>
 	<description>account and transaction management service</description>
 
 	<properties>
