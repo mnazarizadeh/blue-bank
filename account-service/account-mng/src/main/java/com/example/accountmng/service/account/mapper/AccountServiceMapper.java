@@ -11,7 +11,7 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface AccountServiceMapper {
 
-	@Mapping(target = "customerId", source = "customerId")
+	@Mapping(target = "customerIdentifier", source = "customerIdentifier")
 	AccountCreatorModel toAccountCreatorModel(CustomerBriefResult customer);
 
 	@Mapping(target = "accountIdentifier", source = "account.accountIdentifier")

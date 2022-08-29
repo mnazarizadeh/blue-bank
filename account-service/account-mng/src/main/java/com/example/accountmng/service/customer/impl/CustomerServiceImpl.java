@@ -20,9 +20,9 @@ public class CustomerServiceImpl implements CustomerService {
 	private final CustomerServiceMapper mapper;
 
 	@Override
-	public CustomerBriefResult getCustomer(Long customerId) throws BusinessException {
-		log.debug("gonna fetch customer info by id: [{}]", customerId);
-		var response = client.getCustomer(customerId);
+	public CustomerBriefResult getCustomer(String customerIdentifier) throws BusinessException {
+		log.debug("gonna fetch customer info by customer identifier: [{}]", customerIdentifier);
+		var response = client.getCustomer(customerIdentifier);
 		return mapper.toCustomerBriefResult(response);
 	}
 

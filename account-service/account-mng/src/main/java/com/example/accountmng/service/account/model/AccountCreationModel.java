@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 public class AccountCreationModel {
 
-	private Long customerId;
+	private String customerIdentifier;
 
 	private AccountType accountType;
 

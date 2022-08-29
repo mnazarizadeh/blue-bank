@@ -38,7 +38,7 @@ public class CurrentAccountCreatorStrategyImpl implements AccountCreatorStrategy
 
 	private Account createAccountEntity(AccountCreatorModel model) {
 		var account = new Account();
-		account.setOwnerId(model.getCustomerId());
+		account.setOwnerId(model.getCustomerIdentifier());
 		account.setAccountIdentifier(TrackingCodeProvider.generate());
 		return account;
 	}

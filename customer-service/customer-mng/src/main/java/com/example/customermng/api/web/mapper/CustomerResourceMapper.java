@@ -11,14 +11,14 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CustomerResourceMapper {
 
-	@Mapping(target = "customerId", source = "customerId")
-	CustomerBriefInquiryModel toCustomerBriefInquiryModel(Long customerId);
+	@Mapping(target = "customerIdentifier", source = "customerIdentifier")
+	CustomerBriefInquiryModel toCustomerBriefInquiryModel(String customerIdentifier);
 
 	@Mapping(target = "firstName", source = "firstName")
 	@Mapping(target = "lastName", source = "lastName")
 	@Mapping(target = "birthDate", source = "birthDate")
 	@Mapping(target = "socialId", source = "socialId")
-	@Mapping(target = "customerId", source = "customerId")
+	@Mapping(target = "customerIdentifier", source = "customerIdentifier")
 	CustomerBriefResponse toCustomerBriefResponse(CustomerDetailResult result);
 
 	CustomerCreationModel toCustomerCreationModel(CustomerCreationRequest request);

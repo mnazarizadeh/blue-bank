@@ -5,6 +5,6 @@ import com.example.common.exception.BusinessException;
 
 public interface CustomerService {
 
-	CustomerBriefResult getCustomer(Long customerId) throws BusinessException;
+	CustomerBriefResult getCustomer(String customerIdentifier) throws BusinessException;
 
 }

@@ -31,6 +31,9 @@ public class Customer implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	@Column(name = "customer_identifier", nullable = false, unique = true)
+	private String customerIdentifier;
+
 	@Column(name = "first_name", nullable = false)
 	private String firstName;
 

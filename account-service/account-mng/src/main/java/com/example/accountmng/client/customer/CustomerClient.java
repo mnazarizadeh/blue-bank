@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "customerClient", url = "${customer.base.url}")
 public interface CustomerClient {
 
-	@GetMapping(path = "/api/customer/{customerId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	CustomerBriefResponse getCustomer(@PathVariable Long customerId) throws ClientException;
+	@GetMapping(path = "/api/customer/{customerIdentifier}", produces = MediaType.APPLICATION_JSON_VALUE)
+	CustomerBriefResponse getCustomer(@PathVariable String customerIdentifier) throws ClientException;
 
 }

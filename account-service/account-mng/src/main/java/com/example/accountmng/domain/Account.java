@@ -40,7 +40,7 @@ public class Account implements Serializable {
 	private AccountType type;
 
 	@Column(name = "owner_id", nullable = false)
-	private Long ownerId;
+	private String ownerId;
 
 	@CreatedDate
 	@Column(name = "opening_date", nullable = false)

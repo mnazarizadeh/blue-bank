@@ -1,5 +1,7 @@
 package com.example.transactionmng.service.transaction.model;
 
+import java.util.Date;
+
 import com.example.transactionmng.domain.constant.TransactionStatus;
 import com.example.transactionmng.domain.constant.TransactionType;
 import lombok.Getter;
@@ -17,7 +19,7 @@ public class TransactionDetail {
 
 	private TransactionType type;
 
-	private Long transactionDate;
+	private Date transactionDate;
 
 	private double amount;
 

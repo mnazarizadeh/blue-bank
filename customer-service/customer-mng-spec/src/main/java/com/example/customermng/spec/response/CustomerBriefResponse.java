@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 public class CustomerBriefResponse {
 
-	private Long customerId;
+	private String customerIdentifier;
 
 	private String firstName;
 

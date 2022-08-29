@@ -29,10 +29,10 @@ public class CustomerResource {
 
 	private final CustomerResourceMapper mapper;
 
-	@GetMapping(path = "/{customerId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<CustomerBriefResponse> getBrief(@PathVariable Long customerId) throws BusinessException {
-		log.info("got customer detail request for customer id -> [{}]", customerId);
-		var result = service.getBrief(mapper.toCustomerBriefInquiryModel(customerId));
+	@GetMapping(path = "/{customerIdentifier}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<CustomerBriefResponse> getBrief(@PathVariable String customerIdentifier) throws BusinessException {
+		log.info("got customer detail request for customer identifier -> [{}]", customerIdentifier);
+		var result = service.getBrief(mapper.toCustomerBriefInquiryModel(customerIdentifier));
 		return ResponseEntity.ok(mapper.toCustomerBriefResponse(result));
 	}
 

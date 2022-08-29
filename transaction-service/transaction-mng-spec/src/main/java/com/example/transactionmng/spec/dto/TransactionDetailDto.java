@@ -1,5 +1,7 @@
 package com.example.transactionmng.spec.dto;
 
+import java.util.Date;
+
 import com.example.transactionmng.spec.constant.TransactionStatus;
 import com.example.transactionmng.spec.constant.TransactionType;
 import lombok.Getter;
@@ -17,7 +19,7 @@ public class TransactionDetailDto {
 
 	private TransactionType type;
 
-	private Long transactionDate;
+	private Date transactionDate;
 
 	private double amount;
 

@@ -44,7 +44,7 @@ public class AccountServiceImpl implements AccountService {
 	public AccountCreationResult createAccount(AccountCreationModel model) throws BusinessException {
 		log.debug("gonna create account with model -> [{}]", model);
 
-		var customer = customerService.getCustomer(model.getCustomerId());
+		var customer = customerService.getCustomer(model.getCustomerIdentifier());
 		var account = context.getHandler(model.getAccountType()).run(mapper.toAccountCreatorModel(customer));
 		if (model.getInitialCredit() > 0) {
 			transactionService.sendTransaction(

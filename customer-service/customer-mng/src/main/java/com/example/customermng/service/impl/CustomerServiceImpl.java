@@ -25,8 +25,8 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public CustomerDetailResult getBrief(CustomerBriefInquiryModel model) throws BusinessException {
 		log.debug("gonna fetch customer by model: {}", model);
-		return mapper.toCustomerBriefResult(repository.findById(model.getCustomerId())
-				.orElseThrow(() -> new CustomerNotFoundException("customer not found by id: " + model.getCustomerId())));
+		return mapper.toCustomerBriefResult(repository.findByCustomerIdentifier(model.getCustomerIdentifier())
+				.orElseThrow(() -> new CustomerNotFoundException("customer not found by id: " + model.getCustomerIdentifier())));
 	}
 
 	@Override

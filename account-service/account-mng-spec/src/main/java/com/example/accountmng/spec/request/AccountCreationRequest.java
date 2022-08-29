@@ -1,6 +1,6 @@
 package com.example.accountmng.spec.request;
 
-import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.example.accountmng.spec.constant.AccountType;
@@ -13,9 +13,8 @@ import lombok.ToString;
 @ToString
 public class AccountCreationRequest {
 
-	@NotNull
-	@Min(1)
-	private Long customerId;
+	@NotBlank
+	private String customerIdentifier;
 
 	@NotNull
 	private AccountType type;
