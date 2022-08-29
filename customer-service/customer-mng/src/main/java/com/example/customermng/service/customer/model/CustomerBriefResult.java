@@ -1,4 +1,4 @@
-package com.example.customermng.service.model;
+package com.example.customermng.service.customer.model;
 
 import java.util.Date;
 
@@ -9,14 +9,16 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CustomerCreationModel {
+public class CustomerBriefResult {
+
+	private String customerIdentifier;
 
 	private String firstName;
 
 	private String lastName;
 
-	private String socialId;
-
 	private Date birthDate;
+
+	private String socialId;
 
 }

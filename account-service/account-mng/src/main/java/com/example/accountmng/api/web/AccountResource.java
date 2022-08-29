@@ -68,7 +68,7 @@ public class AccountResource {
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<AccountDetailListResponse> getAccountTransactions(@RequestParam("customer") String customerIdentifier)
+	public ResponseEntity<AccountDetailListResponse> getCustomerAccounts(@RequestParam("customer") String customerIdentifier)
 			throws BusinessException {
 		log.info("got customer accounts request of customer identifier: [{}]", customerIdentifier);
 
