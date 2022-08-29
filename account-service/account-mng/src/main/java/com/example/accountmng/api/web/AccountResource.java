@@ -8,6 +8,7 @@ import com.example.accountmng.spec.request.AccountCreationRequest;
 import com.example.accountmng.spec.request.UpdateBalanceRequest;
 import com.example.accountmng.spec.response.AccountBalanceResponse;
 import com.example.accountmng.spec.response.AccountBriefResponse;
+import com.example.accountmng.spec.response.AccountDetailListResponse;
 import com.example.common.exception.BusinessException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -59,10 +61,21 @@ public class AccountResource {
 			@RequestBody UpdateBalanceRequest request) throws BusinessException {
 		log.info("got account update balance request for account: [{}], request: [{}]", accountIdentifier, request);
 
-		var result = service.updateBalance(mapper.toUpdateAccountBalanceModel(request));
+		var result = service.updateBalance(mapper.toAccountUpdateBalanceModel(request));
 		log.debug("account balance result is: [{}]", result);
 
 		return ResponseEntity.ok(mapper.AccountBalanceResponse(result));
+	}
+
+	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<AccountDetailListResponse> getAccountTransactions(@RequestParam("customer") String customerIdentifier)
+			throws BusinessException {
+		log.info("got customer accounts request of customer identifier: [{}]", customerIdentifier);
+
+		var result = service.getCustomerAccounts(customerIdentifier);
+		log.trace("account list: [{}]", result);
+
+		return ResponseEntity.ok(mapper.toAccountDetailListResponse(result));
 	}
 
 }

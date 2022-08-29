@@ -1,5 +1,7 @@
 package com.example.accountmng.service.account.impl;
 
+import java.util.stream.Collectors;
+
 import javax.transaction.Transactional;
 import javax.transaction.Transactional.TxType;
 
@@ -13,7 +15,9 @@ import com.example.accountmng.service.account.mapper.AccountServiceMapper;
 import com.example.accountmng.service.account.model.AccountBalanceResult;
 import com.example.accountmng.service.account.model.AccountCreationModel;
 import com.example.accountmng.service.account.model.AccountCreationResult;
-import com.example.accountmng.service.account.model.UpdateAccountBalanceModel;
+import com.example.accountmng.service.account.model.AccountDetail;
+import com.example.accountmng.service.account.model.AccountDetailListResult;
+import com.example.accountmng.service.account.model.AccountUpdateBalanceModel;
 import com.example.accountmng.service.customer.CustomerService;
 import com.example.accountmng.service.transaction.TransactionService;
 import com.example.accountmng.service.transaction.model.TransactionModel;
@@ -55,8 +59,8 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public AccountBalanceResult updateBalance(UpdateAccountBalanceModel model) throws BusinessException {
-		log.info("got update balance event for account -> [{}]", model.getAccountIdentifier());
+	public AccountBalanceResult updateBalance(AccountUpdateBalanceModel model) throws BusinessException {
+		log.debug("got update balance event for account -> [{}]", model.getAccountIdentifier());
 
 		var account = getAccountByAccountIdentifier(model.getAccountIdentifier());
 		account.setBalance(account.getBalance() + model.getAmount());
@@ -65,9 +69,23 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public AccountBalanceResult getBalance(String accountIdentifier) throws BusinessException {
-		log.info("got balance update request for account -> [{}]", accountIdentifier);
+		log.debug("got balance update request for account -> [{}]", accountIdentifier);
 
 		return mapper.toAccountBalanceResult(getAccountByAccountIdentifier(accountIdentifier));
+	}
+
+	@Override
+	public AccountDetailListResult getCustomerAccounts(String customerIdentifier) throws BusinessException {
+		log.debug("gonna fetch all accounts detail of customer -> [{}]", customerIdentifier);
+
+		var accountDetails = repository.findAllByOwnerId(customerIdentifier).stream()
+				.map(mapper::toAccountDetail).collect(Collectors.toList());
+		for(AccountDetail accountDetail: accountDetails) {
+			var result = transactionService.getAccountTransactions(accountDetail.getAccountIdentifier());
+			accountDetail.setTransactions(result.getTransactions());
+		}
+
+		return new AccountDetailListResult(accountDetails);
 	}
 
 	private Account getAccountByAccountIdentifier(String accountIdentifier) throws BusinessException {

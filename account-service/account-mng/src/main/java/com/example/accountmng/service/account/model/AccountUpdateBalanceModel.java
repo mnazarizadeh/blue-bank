@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class UpdateAccountBalanceModel {
+public class AccountUpdateBalanceModel {
 
 	private String accountIdentifier;
 
