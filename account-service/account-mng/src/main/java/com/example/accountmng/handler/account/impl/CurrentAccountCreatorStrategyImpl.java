@@ -1,5 +1,8 @@
 package com.example.accountmng.handler.account.impl;
 
+import javax.transaction.Transactional;
+import javax.transaction.Transactional.TxType;
+
 import com.example.accountmng.domain.Account;
 import com.example.accountmng.domain.constant.AccountType;
 import com.example.accountmng.handler.account.AccountCreatorStrategy;
@@ -28,6 +31,7 @@ public class CurrentAccountCreatorStrategyImpl implements AccountCreatorStrategy
 	}
 
 	@Override
+	@Transactional(TxType.REQUIRES_NEW)
 	public AccountCreatorResult run(AccountCreatorModel model) {
 		log.debug("gonna create current account for model -> [{}]", model);
 
@@ -40,6 +44,7 @@ public class CurrentAccountCreatorStrategyImpl implements AccountCreatorStrategy
 		var account = new Account();
 		account.setOwnerId(model.getCustomerIdentifier());
 		account.setAccountIdentifier(TrackingCodeProvider.generate());
+		account.setType(getType());
 		return account;
 	}
 

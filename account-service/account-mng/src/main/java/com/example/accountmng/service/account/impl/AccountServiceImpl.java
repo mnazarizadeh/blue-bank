@@ -22,10 +22,12 @@ import com.example.accountmng.service.customer.CustomerService;
 import com.example.accountmng.service.transaction.TransactionService;
 import com.example.accountmng.service.transaction.model.TransactionModel;
 import com.example.common.exception.BusinessException;
+import com.example.common.exception.ClientException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 
 @Slf4j
 @Service
@@ -50,15 +52,20 @@ public class AccountServiceImpl implements AccountService {
 
 		var customer = customerService.getCustomer(model.getCustomerIdentifier());
 		var account = context.getHandler(model.getAccountType()).run(mapper.toAccountCreatorModel(customer));
-		if (model.getInitialCredit() > 0) {
-			transactionService.sendTransaction(
-					new TransactionModel(account.getAccountIdentifier(),TransactionType.DEPOSIT, model.getInitialCredit()));
+		try {
+			if (model.getInitialCredit() > 0) {
+				transactionService.sendTransaction(
+						new TransactionModel(account.getAccountIdentifier(), TransactionType.DEPOSIT, model.getInitialCredit()));
+			}
+		} catch (ClientException exception) {
+			repository.deleteByAccountIdentifier(account.getAccountIdentifier());
+			throw exception;
 		}
-
 		return mapper.toAccountCreationResult(getAccountByAccountIdentifier(account.getAccountIdentifier()), customer);
 	}
 
 	@Override
+	@Transactional(TxType.REQUIRES_NEW)
 	public AccountBalanceResult updateBalance(AccountUpdateBalanceModel model) throws BusinessException {
 		log.debug("got update balance event for account -> [{}]", model.getAccountIdentifier());
 

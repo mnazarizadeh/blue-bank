@@ -43,7 +43,7 @@ public class WithdrawTransactionStrategyImpl implements TransactionStrategy {
 		try {
 			checkBalance(model);
 			model.setAmount(-model.getAmount());
-			var response = client.updateBalance(mapper.toUpdateBalanceRequest(model));
+			var response = client.updateBalance(model.getAccountIdentifier(), mapper.toUpdateBalanceRequest(model));
 			transaction.setStatus(TransactionStatus.PAID);
 			transaction.setFinalBalance(response.getBalance());
 		} catch (ClientException | InsufficientBalanceException exception) {

@@ -15,4 +15,6 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
 	Set<Account> findAllByOwnerId(String ownerId);
 
+	void deleteByAccountIdentifier(String accountIdentifier);
+
 }

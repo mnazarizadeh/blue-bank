@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping(path = "/transactions")
 @RequiredArgsConstructor
 public class TransactionResource {
 

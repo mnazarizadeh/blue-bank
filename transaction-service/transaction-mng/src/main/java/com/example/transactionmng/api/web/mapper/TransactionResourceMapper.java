@@ -7,10 +7,12 @@ import com.example.transactionmng.spec.request.TransactionRequest;
 import com.example.transactionmng.spec.response.TransactionBriefResponse;
 import com.example.transactionmng.spec.response.TransactionDetailListResponse;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface TransactionResourceMapper {
 
+	@Mapping(target = "transactionType", source = "type")
 	TransactionInitiationModel toTransactionInitiationModel(TransactionRequest request);
 
 	TransactionBriefResponse toTransactionBriefResponse(TransactionBriefResult result);

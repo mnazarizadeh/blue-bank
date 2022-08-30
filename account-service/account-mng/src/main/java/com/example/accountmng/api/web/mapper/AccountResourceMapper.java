@@ -11,10 +11,12 @@ import com.example.accountmng.spec.response.AccountBalanceResponse;
 import com.example.accountmng.spec.response.AccountBriefResponse;
 import com.example.accountmng.spec.response.AccountDetailListResponse;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface AccountResourceMapper {
 
+	@Mapping(target = "accountType", source = "type")
 	AccountCreationModel toAccountCreationModel(AccountCreationRequest request);
 
 	AccountBriefResponse toAccountBriefResponse(AccountCreationResult result);

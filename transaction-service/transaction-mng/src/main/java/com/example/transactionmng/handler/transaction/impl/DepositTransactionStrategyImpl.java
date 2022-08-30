@@ -40,7 +40,7 @@ public class DepositTransactionStrategyImpl implements TransactionStrategy {
 		var transaction = mapper.toTransaction(trackingCode, model, getType());
 
 		try {
-			var response = client.updateBalance(mapper.toUpdateBalanceRequest(model));
+			var response = client.updateBalance(model.getAccountIdentifier(), mapper.toUpdateBalanceRequest(model));
 			transaction.setStatus(TransactionStatus.PAID);
 			transaction.setFinalBalance(response.getBalance());
 		} catch (ClientException exception) {

@@ -31,8 +31,7 @@ public class GlobalHttpExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(BusinessException.class)
 	public final ResponseEntity<ErrorResponse> handleBusinessException(BusinessException ex) {
 		logger.warn("business error", ex);
-		ResponseStatus responseStatus = ex.getClass().getAnnotation(ResponseStatus.class);
-		return ResponseEntity.status(responseStatus.code()).body(new ErrorResponse(ex.getResponseCode(), ex.getMessage()));
+		return ResponseEntity.unprocessableEntity().body(new ErrorResponse(ex.getResponseCode(), ex.getMessage()));
 	}
 
 	@ExceptionHandler(Exception.class)

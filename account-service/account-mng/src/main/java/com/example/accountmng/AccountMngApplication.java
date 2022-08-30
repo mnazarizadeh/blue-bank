@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 @EnableFeignClients
 @ConfigurationPropertiesScan
-@EnableJpaAuditing
 public class AccountMngApplication {
 
 	public static void main(String[] args) {
