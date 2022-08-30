@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "\nStarting [Blue Bank] Application ....\n\
+echo -e "\nStopping [Blue Bank] Application ....\n\
 ---------------------------------------\n"
 cd customer-service/customer-mng
 mvn spring-boot:stop
