@@ -2,13 +2,15 @@
 
 echo -e "\nStarting [Blue Bank] Application ....\n\
 ---------------------------------------\n"
-cd customer-service/customer-mng
-mvn spring-boot:start
-cd ../..
-cd account-service/account-mng
-mvn spring-boot:start
-cd ../..
-cd transaction-service/transaction-mng
-mvn spring-boot:start
+function runService(){
+  mvn spring-boot:run -f "$1"
+}
+
+for dir in $(find  ./*-service/*-mng -maxdepth 0 -type d)
+do
+    echo -e "Starting [${dir}] application.... Done \n" && \
+    runService "$dir" &
+done
+read -r
 echo -e "\nAll services are up and running ....\n\
 ---------------------------------------\n"
