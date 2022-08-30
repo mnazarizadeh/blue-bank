@@ -46,7 +46,7 @@ public class AccountServiceImpl implements AccountService {
 
 
 	@Override
-	@Transactional(TxType.REQUIRES_NEW)
+	@Transactional
 	public AccountCreationResult createAccount(AccountCreationModel model) throws BusinessException {
 		log.debug("gonna create account with model -> [{}]", model);
 
