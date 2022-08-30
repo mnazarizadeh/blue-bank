@@ -20,27 +20,34 @@ Each service component contains two module, one for service application and a sh
 
 
 ## How to run
-
-1. Build the application
+1. Clone project
+```
+git clone https://github.com/mnazarizadeh/blue-bank.git
+```
+2. Build the application
 ```
 cd <PROJECT_HOME>
 mvn clean install
 ```
-2. Start the application
+3. Start the application
 ```
 ./start.sh
 ```
-3. Services are running on these posts
+or move to each mng service application and run
+```
+cd <SERVICE_NAME>-service/<SERVICE_NAME>-mng
+mvn spring-boot:start
+```
+4. Services are running on these posts
    * customer-mng: http://localhost:8080
    * account-mng: http://localhost:8081
    * transaction-mng: http://localhost:8082
 
 
-4. Add new customers
+5. Add new customers
 
 
-5. Start creating account and inquiring customer details
-
+6. Start creating account and inquiring customer details
 
 
 7. To Stop application
