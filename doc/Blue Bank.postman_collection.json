@@ -1,0 +1,518 @@
+{
+	"info": {
+		"_postman_id": "0be81293-c6e7-4480-99ff-cce716212267",
+		"name": "Blue Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6924000"
+	},
+	"item": [
+		{
+			"name": "create customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Mohammad\",\r\n    \"lastName\": \"Nazarizadeh\",\r\n    \"birthDate\": \"1990-10-09T00:00:00.000Z\",\r\n    \"socialId\": \"2280603667\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Mohammad\",\r\n    \"lastName\": \"Nazarizadeh\",\r\n    \"birthDate\": \"1990-10-09T00:00:00.000Z\",\r\n    \"socialId\": \"2280603667\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Aug 2022 22:18:56 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"customerIdentifier\": \"4859578581661811536347\",\n    \"firstName\": \"Mohammad\",\n    \"lastName\": \"Nazarizadeh\",\n    \"birthDate\": \"1990-10-09T00:00:00.000+00:00\",\n    \"socialId\": \"2280603667\"\n}"
+				},
+				{
+					"name": "failure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Mohammad\",\r\n    \"lastName\": \"Nazarizadeh\",\r\n    \"birthDate\": \"1990-10-09T00:00:00.000Z\",\r\n    \"socialId\": \"2280603667\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/customers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers"
+							]
+						}
+					},
+					"status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Aug 2022 22:20:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"failure\",\n    \"timestamp\": \"2022-08-29 22:20:44\",\n    \"message\": \"could not execute statement; SQL [n/a]; constraint [\\\"PUBLIC.UK_PTPRMBRCHSAL125SDC1TC2JVP_INDEX_6 ON PUBLIC.CUSTOMERS(SOCIAL_ID NULLS FIRST) VALUES ( /* 1 */ '2280603667' )\\\"; SQL statement:\\ninsert into customers (birth_date, customer_identifier, first_name, last_name, social_id, id) values (?, ?, ?, ?, ?, ?) [23505-214]]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get customer by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/4859578581661811536347",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"4859578581661811536347"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/4859578581661811536347",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"4859578581661811536347"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Aug 2022 22:19:18 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"customerIdentifier\": \"4859578581661811536347\",\n    \"firstName\": \"Mohammad\",\n    \"lastName\": \"Nazarizadeh\",\n    \"birthDate\": \"1990-10-09T00:00:00.000+00:00\",\n    \"socialId\": \"2280603667\"\n}"
+				},
+				{
+					"name": "not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/4859578581661811536345",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"4859578581661811536345"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Aug 2022 22:21:52 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"customer.not.found\",\n    \"timestamp\": \"2022-08-29 22:21:52\",\n    \"message\": \"customer not found by id: 4859578581661811536345\"\n}"
+				}
+			]
+		},
+		{
+			"name": "create account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"customerIdentifier\": \"18936100571661817788643\",\r\n    \"type\": 0,\r\n    \"initialCredit\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerIdentifier\": \"18936100571661817788643\",\r\n    \"type\": 0,\r\n    \"initialCredit\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 30 Aug 2022 00:03:51 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"accountIdentifier\": \"20552128291661817803009\",\n    \"accountType\": 0,\n    \"owner\": {\n        \"firstName\": \"Mohammad\",\n        \"lastName\": \"Nazarizadeh\",\n        \"birthDate\": \"1990-10-09T00:00:00.000+00:00\",\n        \"socialId\": \"2280603667\"\n    },\n    \"openingDate\": \"2022-08-30T00:03:23.036+00:00\",\n    \"balance\": 10\n}"
+				}
+			]
+		},
+		{
+			"name": "get customer detail with accounts and transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/customers/18936100571661817788643/detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"customers",
+						"18936100571661817788643",
+						"detail"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "no account found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/4859578581661811536347/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"4859578581661811536347",
+								"detail"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Aug 2022 22:22:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"customerIdentifier\": \"4859578581661811536347\",\n    \"firstName\": \"Mohammad\",\n    \"lastName\": \"Nazarizadeh\",\n    \"birthDate\": \"1990-10-09T00:00:00.000+00:00\",\n    \"socialId\": \"2280603667\",\n    \"accounts\": []\n}"
+				},
+				{
+					"name": "customer not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/4859578581661811236347/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"4859578581661811236347",
+								"detail"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 29 Aug 2022 22:25:30 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseCode\": \"customer.not.found\",\n    \"timestamp\": \"2022-08-29 22:25:30\",\n    \"message\": \"customer not found by id: 4859578581661811236347\"\n}"
+				},
+				{
+					"name": "detailed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/customers/18936100571661817788643/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"customers",
+								"18936100571661817788643",
+								"detail"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 30 Aug 2022 00:05:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"customerIdentifier\": \"18936100571661817788643\",\n    \"firstName\": \"Mohammad\",\n    \"lastName\": \"Nazarizadeh\",\n    \"birthDate\": \"1990-10-09T00:00:00.000+00:00\",\n    \"socialId\": \"2280603667\",\n    \"accounts\": [\n        {\n            \"accountIdentifier\": \"20552128291661817803009\",\n            \"accountType\": null,\n            \"openingDate\": \"2022-08-30T00:03:23.036+00:00\",\n            \"balance\": \"10.0\",\n            \"transactions\": [\n                {\n                    \"trackingCode\": \"2390728151661817803379\",\n                    \"accountIdentifier\": \"20552128291661817803009\",\n                    \"type\": 1,\n                    \"transactionDate\": \"2022-08-30T00:03:31.986+00:00\",\n                    \"amount\": 10,\n                    \"finalBalance\": 10,\n                    \"status\": 1\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
