@@ -33,11 +33,7 @@ mvn clean install
 ```
 ./start.sh
 ```
-or move to each mng service application and run
-```
-cd <SERVICE_NAME>-service/<SERVICE_NAME>-mng
-mvn spring-boot:start
-```
+
 4. Services are running on these ports
    * customer-mng: http://localhost:8080
    * account-mng: http://localhost:8081
