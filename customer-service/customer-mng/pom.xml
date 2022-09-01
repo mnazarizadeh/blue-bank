@@ -119,11 +119,6 @@
 			<artifactId>customer-mng-spec</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>com.example</groupId>
-			<artifactId>transaction-mng-spec</artifactId>
-			<version>${transaction-service.version}</version>
-		</dependency>
 	</dependencies>
 
 	<profiles>

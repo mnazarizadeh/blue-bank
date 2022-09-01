@@ -24,7 +24,6 @@
 		<lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
 
 		<account-service.version>0.0.1-SNAPSHOT</account-service.version>
-		<transaction-service.version>0.0.1-SNAPSHOT</transaction-service.version>
 		<common.version>0.0.1-SNAPSHOT</common.version>
 	</properties>
 
